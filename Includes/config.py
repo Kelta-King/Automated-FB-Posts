@@ -1,4 +1,4 @@
-from . import "config_hid.py" as config
+from . import config_hid as config
 
 def getAccessToken():
     return config.accessToken
