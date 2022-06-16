@@ -3,7 +3,27 @@ from Includes import config as conf
 import json
 from Actions import instagram as ig
 
-image_url = "https://cdn.ilovefreesoftware.com/wp-content/uploads/2018/01/Bulk-Encode-URL-Online-with-these-4-Free-Websites.jpg"
-caption = "sample image"
+from google_images_download import google_images_download   #importing the library
 
-ig.publishPost( conf.getUserId(), conf.getAccessToken(), image_url, caption )
+response = google_images_download.googleimagesdownload()   #class instantiation
+
+arguments = {"keywords":"Beaches","limit":5,"no_download": True}   #creating list of arguments
+paths = response.download(arguments)   #passing the arguments to the function
+
+images_paths = []
+for k, v in paths[0].items():
+    images_paths += v
+
+for x in images_paths:
+    image_url = x
+    caption = "sample image captions!"
+    ig.publishPost( conf.getUserId(), conf.getAccessToken(), image_url, caption )
+
+# for x in images_paths:
+#     try:
+#         image_url = x
+#         caption = "sample image captions!"
+#         ig.publishPost( conf.getUserId(), conf.getAccessToken(), image_url, caption )
+#     expect:
+#         print(dp.text)
+
