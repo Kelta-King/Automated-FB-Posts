@@ -16,9 +16,8 @@ while ( i < end ):
         image_url = dt[i]['download_url']
         caption = "Image captured by " + dt[i]['author']
         i += 1
+        fb.publishOnPage(conf.getPageId(), conf.getPageAccessToken(), image_url, caption)
 
-        fb.publishOnPage(conf.pageId, conf.pageAccessToken, image_url, caption)
-        # print(dt)
     except Exception as e:
         print(e)
     
