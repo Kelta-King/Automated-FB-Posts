@@ -18,8 +18,8 @@ def getClientToken():
 def getUserId():
     return config.userId
 
-# Config_hid.py file looks like below
-# 
+#Config_hid.py file looks like below
+
 # accessToken = "ACCESS_TOKEN"
 # appId = "APP_ID"
 # clientToken = "CLIENT_TOKEN"
